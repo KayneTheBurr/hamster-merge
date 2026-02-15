@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class BallLauncher : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class BallLauncher : MonoBehaviour
     public Vector2 mousePos;
     public LayerMask hamsterLayer;
     public GameObject hamsterPlaceholder;
-    LineRenderer lineRend;
+    public LineRenderer lineRend;
 
     private void Awake()
     {
@@ -22,35 +23,36 @@ public class BallLauncher : MonoBehaviour
     }
 
     float start_x, start_y, end_x, end_y, force_x, force_y;
-    GameObject clone;
+    public GameObject clone;
     public int force = 100;
 
     void OnMouseDown()
     {
+        //start at the position of the hamster
         start_x = transform.position.x;
         start_y = transform.position.y;
 
-        //Create clone in the initial object position and make minor clone component adjustments
+        //Create clone in the initial object position
         clone = Instantiate(hamsterPlaceholder, transform.position, Quaternion.identity);
-       
+
     }
 
     void OnMouseDrag()
     {
-        gameObject.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        clone.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        clone.transform.position = new Vector3(clone.transform.position.x, clone.transform.position.y, 0);
 
-        end_x = transform.position.x;
-        end_y = transform.position.y;
+        end_x = clone.transform.position.x;
+        end_y = clone.transform.position.y;
 
         var lineRend = GetComponentInChildren<LineRenderer>();
-        
-        if ( lineRend != null)
+
+        if (lineRend != null)
         {
             lineRend.enabled = true;
             lineRend.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 1));
             lineRend.SetPosition(1, new Vector3(clone.transform.position.x, clone.transform.position.y, 1));
-            
+
         }
     }
 
@@ -63,6 +65,28 @@ public class BallLauncher : MonoBehaviour
         rb.AddForce(Vector2.right * force_x * force);
 
         Destroy(clone);
+        Destroy(lineRend);
+    }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        var foodData = col.gameObject.GetComponent<EdibleObject>();
+        if (foodData != null)
+
+            Debug.Log("Collide check");
+        {
+            gameObject.transform.localScale = new Vector3(transform.localScale.x + foodData.sizeGainAmount / 10,
+                transform.localScale.y + foodData.sizeGainAmount / 10,
+                transform.localScale.z + foodData.sizeGainAmount / 10);
+
+            rb.AddForce(Vector2.one * foodData.speedGainAmount/10, ForceMode2D.Impulse);
+
+            rb.AddTorque(foodData.torqueGainAMount * 10);
+
+
+
+        }
+
+        Destroy(col.gameObject);
     }
 }
