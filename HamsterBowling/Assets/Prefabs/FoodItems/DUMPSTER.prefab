@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30eba37bab0238748adfbba4ef459bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EdibleObject
-  sizeGainAmount: 40
-  speedGainAmount: -100
+  sizeGainAmount: 20
+  speedGainAmount: -25
   torqueGainAMount: 0
 --- !u!212 &2148753207049160639
 SpriteRenderer:
@@ -98,7 +98,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2487642582329340485, guid: 7ea26abe420ceaa41a1a2ec534beb02c, type: 3}
+  m_Sprite: {fileID: 7450257463025782766, guid: 8ed63a9d9df149c4dbd2819078db1d52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

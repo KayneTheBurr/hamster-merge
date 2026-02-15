@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1e39899a9372d3a42a2bd05a17851b62
+guid: 9d383046098e5044ba350fa86d82dfd1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3635151140034136436
-    second: grass-bg_0
+      213: 239163691014211866
+    second: openhand-export_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grass-bg_0
+      name: openhand-export_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
-        height: 360
+        width: 407
+        height: 965
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4794796b3b6a27230800000000000000
-      internalID: 3635151140034136436
+      spriteID: a19c21e1c1ea15300800000000000000
+      internalID: 239163691014211866
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grass-bg_0: 3635151140034136436
+      openhand-export_0: 239163691014211866
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
