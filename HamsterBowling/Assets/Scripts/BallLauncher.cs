@@ -79,11 +79,13 @@ public class BallLauncher : MonoBehaviour
                 transform.localScale.y + foodData.sizeGainAmount / 10,
                 transform.localScale.z + foodData.sizeGainAmount / 10);
 
+
+            rb.linearDamping -= foodData.speedGainAmount / 10;
             rb.AddForce(Vector2.one * foodData.speedGainAmount/10, ForceMode2D.Impulse);
+            //rb.mass -= foodData.speedGainAmount/10;
+
 
             rb.AddTorque(foodData.torqueGainAMount * 10);
-
-
 
         }
 
